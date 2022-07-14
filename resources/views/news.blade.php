@@ -4,11 +4,11 @@
     <section class="way">
         <div class="container">
             <div class="flex">
-                <a href="/" class="text_way hover_line">
+                <a href="{{route('general')}}" class="text_way hover_line">
                     Головна
                 </a>
                 <i class="fa-solid fa-arrow-right-long icon_way"></i>
-                <a href="/" class="text_way hover_line">
+                <a href="{{route('news')}}" class="text_way hover_line">
                     Новини
 
                 </a>
@@ -43,7 +43,8 @@
                         <div class="text_news text_align_left">{{$new->description}}
 
                         </div>
-                        <div class="date_news text_align_left">{{$new->date}}
+                        <div class="date_news text_align_left">{{str_replace($month_en, $month_ukr,DateTime::createFromFormat('Y-m-d H:i:s', $new->date)->format('d F Y, H:i '))}}
+
 
                         </div>
                     </div>
@@ -56,7 +57,8 @@
                         <div class="text_news text_align_right">{{$new->description}}
 
                         </div>
-                        <div class="date_news text_align_right">{{$new->date}}
+                        <div class="date_news text_align_right">{{str_replace($month_en, $month_ukr,DateTime::createFromFormat('Y-m-d H:i:s', $new->date)->format('d F Y, H:i '))}}
+
 
                         </div>
                     </div>
@@ -134,18 +136,20 @@
     </section>
     <section>
         <div class="container flex  justify-content-center">
-            <a href="./news?page=1" class="pages">
-                1
+            @for($c=1; $c<=round(count($all_news)/2); $c++)
+            <a href="./news?page={{$c}}" class="pages">
+                {{$c}}
             </a>
-            <a href="./news?page=2" class="pages">
-                2
-            </a>
-            <a href="./news?page=3" class="pages">
-                3
-            </a>
-            <a href="./news?page=4" class="pages">
-                4
-            </a>
+            @endfor
+{{--            <a href="./news?page=2" class="pages">--}}
+{{--                2--}}
+{{--            </a>--}}
+{{--            <a href="./news?page=3" class="pages">--}}
+{{--                3--}}
+{{--            </a>--}}
+{{--            <a href="./news?page=4" class="pages">--}}
+{{--                4--}}
+{{--            </a>--}}
 
         </div>
     </section>

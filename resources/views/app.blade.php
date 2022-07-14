@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
+    <link type="Image/x-icon" href="/img/icon.png" rel="icon">
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/bootstrap/bootstrap-grid.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +21,7 @@
             <nav>
                 <ul  class="header__menu">
                     <li>
-                        <a href="{{route('info_fond')}}">ПРО ФОНД</a>
+                        <a href="{{route('fond')}}">ПРО ФОНД</a>
                     </li>
                     <li>
                         <a href="{{route('news')}}">НОВИНИ</a>
@@ -43,9 +44,9 @@
             </div>
         </div>
         <div class="flex align-items-center">
-            <a href="/" class="box_support hover_tin">
+            <button  class="box_support hover_tin open_pop_up">
                 Підтримати
-            </a>
+            </button>
             <div class="contacts">
                 <a class="number hover_blue_yellow">
                     +38 (068) 505 96 50
@@ -70,6 +71,18 @@
 
 </header>
 <main>
+    <div class="pop_up" id="pop_up">
+        <div class="pop_up_container">
+            <div class="pop_up_body" id="pop_up_body">
+                <div style="display:flex; flex-direction: column; align-items:center;">
+                    <h3>Відскануйте Q-r код та зробіть добро</h3>
+                    <button id="pop_up_ok" onclick="closePop('pop_up')">Ок</button>
+                    <div class="pop_up_close" id="pop_up_close" onclick="closePop('pop_up')">&#10006
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     @yield('content')
 </main>
 <footer>
@@ -77,6 +90,21 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
+                    <img class="emblem" src="/img/emblem.png" alt="">
+                    <div class="general_text_mobile">
+                        Патріот.ua
+                    </div>
+                    <div class="text_mobile">
+                        Благодійна організація
+                    </div>
+
+                        <div class="foot_icon icons">
+                            <a class="icon hover_blue_yellow big_icon" href="https://www.facebook.com/profile.php?id=100040310163390" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                            <a class="icon hover_blue_yellow big_icon" href="https://instagram.com/arkonsklo?igshid=YmMyMTA2M2Y=" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                            <a class="icon hover_blue_yellow big_icon" href="https://t.me/+380685059650" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+                            <a class="icon hover_blue_yellow big_icon" href="https://wa.me/380685059650" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+
+                        </div>
 
                 </div>
                 <div class="col-md-8">
@@ -85,9 +113,9 @@
                         <div class="text_support">
                             Будемо дуже раді Вашій підтримці
                         </div>
-                        <a href="/" class="box_support hover_tin">
+                        <button  class="box_support hover_tin open_pop_up">
                             Підтримати
-                        </a>
+                        </button>
                     </div>
                     <hr class ="hr">
 
@@ -97,13 +125,13 @@
                             <nav class="footer_menu">
                                 <ul>
                                     <li>
-                                        <a class="text_footer hover_line" href="index.html">Головна</a>
+                                        <a class="text_footer hover_line" href="{{route('general')}}">Головна</a>
                                     </li>
                                     <li>
-                                        <a class="text_footer hover_line" href="news.html">Новини</a>
+                                        <a class="text_footer hover_line" href="{{route('news')}}">Новини</a>
                                     </li>
                                     <li>
-                                        <a class="text_footer hover_line" href="index.html">Про нас</a>
+                                        <a class="text_footer hover_line" href="{{route('fond')}}">Про нас</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -182,6 +210,22 @@
             $('body').toggleClass('fixed-page');
         });
     });
+</script>
+<script>
+    const openPopUp = document.querySelectorAll('.open_pop_up');
+    const popUp = document.getElementById('pop_up');
+    for(var i=0; i<openPopUp.length; i++) {
+        openPopUp[i].addEventListener('click', function (e) {
+            e.preventDefault();
+            popUp.classList.add('active');
+
+        });
+    }
+
+    function closePop(name){
+        const popUp = document.getElementById(name);
+        popUp.classList.remove('active');
+    }
 </script>
 </body>
 </html>

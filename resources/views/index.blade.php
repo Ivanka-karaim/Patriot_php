@@ -55,7 +55,7 @@
             <div class="row">
                 <div class="col-md-6 col-lg-8 flex flex-column justify-content-between">
                     <img style="width:100%" src="img/New1.png" alt="">
-                    <a href="" class="general_text_new1 hover_blue_yellow">{{$news[0]->name}}
+                    <a href="{{route('new', $news[0]->id)}}" class="general_text_new1 hover_blue_yellow">{{$news[0]->name}}
 
                     </a>
                     <div class="text_new1">{{$news[0]->description}}
@@ -73,7 +73,7 @@
                     <div>
                         @foreach($news->skip(1) as $new)
                         <div class="new2">
-                            <a href="" class="text_new2 hover_blue_yellow">{{$new->name}}
+                            <a href="{{route('new', $new->id)}}" class="text_new2 hover_blue_yellow">{{$new->name}}
 
                             </a>
                             <div class="date_new">{{$new->date}}
@@ -131,7 +131,7 @@
     <section class="progress">
         <div class="container">
             <div class="row">
-                <div class="col-6 col-lg-3 change_photo">
+                <div class="col-6 col-lg-3 change_photo change_photo_1">
 
                     <div class="text_change_photo flex flex-column justify-content-between ">
 
@@ -151,7 +151,7 @@
 
 
                 </div>
-                <div class="col-6 col-lg-3 flex flex-column justify-content-between change_photo">
+                <div class="col-6 col-lg-3 flex flex-column justify-content-between change_photo change_photo_2">
                     <div>
                         <div class="general_progress">
                             20 500+
@@ -166,7 +166,7 @@
                     </div>
 
                 </div>
-                <div class="col-6 col-lg-3 flex flex-column justify-content-between change_photo">
+                <div class="col-6 col-lg-3 flex flex-column justify-content-between change_photo change_photo_3">
                     <div>
                         <div class="general_progress">
                             500+
@@ -181,7 +181,7 @@
                     </div>
 
                 </div>
-                <div class="col-6 col-lg-3 flex flex-column justify-content-between change_photo">
+                <div class="col-6 col-lg-3 flex flex-column justify-content-between change_photo change_photo_4">
                     <div>
                         <div class="general_progress">
                             10+

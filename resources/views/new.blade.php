@@ -4,12 +4,13 @@
     <section class="way">
         <div class="container">
             <div class="flex">
-                <a href="/" class="text_way hover_line">
+                <a href="{{route('general')}}" class="text_way hover_line">
                     Головна
                 </a>
                 <i class="fa-solid fa-arrow-right-long icon_way"></i>
-                <a href="/" class="text_way hover_line">
+                <a href="{{route('news')}}" class="text_way hover_line">
                     Новини
+
                 </a>
             </div>
         </div>
@@ -22,7 +23,7 @@
                 </div>
                 <hr class="hr_name_new">
                 <div class="flex justify-content-between" style="width:90%">
-                    <div class="date_and_author">{{$new->date}}
+                    <div class="date_and_author">{{str_replace($month_en, $month_ukr,DateTime::createFromFormat('Y-m-d H:i:s', $new->date)->format('d F Y, H:i '))}}
 
                     </div>
                     <div class="date_and_author text_align_right_new">{{$new->author}}
@@ -40,9 +41,25 @@
 
 
             </div>
-            <div class="text_new">{{$new->text}}
 
+            <div >
+
+
+            @foreach($text_1 as $key=>$t)
+                <div class="text_new"> {{$t.'.'}}</div>
+
+                @if($key+1<count($text))
+                <img class="img_new_width all_text" src="{{$new->photos[$key+1]->photo}}" alt="">
+                    @endif
+                @endforeach
             </div>
+
+
+{{--            <div>{{$new->text}}</div>--}}
+{{--            @foreach($k as $w)--}}
+{{--                <div> {{'1'.$w}}</div>--}}
+{{--            @endforeach--}}
+
 {{--            <div class="text_new">--}}
 {{--                10 комплексів — це 20 літаків PD-2 і 10 автівок-наземних станцій, переобладнаних у пересувні командні пункти управління.--}}
 
