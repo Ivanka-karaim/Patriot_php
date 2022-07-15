@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\FondNew;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class MainController extends Controller
 {
@@ -78,5 +79,15 @@ class MainController extends Controller
             array_push($mas,$min);
         }
         return $mas;
+    }
+    public function changeLocale($locale)
+    {
+        $availableLocales = ['uk', 'en'];
+        if (!in_array($locale, $availableLocales)) {
+            $locale = config('app.locale');
+        }
+        session(['locale' => $locale]);
+        App::setLocale($locale);
+        return redirect()->back();
     }
 }

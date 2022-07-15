@@ -17,8 +17,8 @@
                         <div class="text_fond">
                             Наша Фундація підтримує Збройні Сили України, інші складові сектору безпеки та оборони держави, забезпечуючи їх технологічну перевагу над ворогом. Із 2014 року ми передали у військо близько 3,439 одиниць тепловізійної оптики та понад 2869 дронів. Окрім матеріальної допомоги, ми підвищили рівень технологічності армії з допомогою більш ніж 2,800 планшетів із програмним забезпеченням “Армор” для стрільби з закритих позицій з танків.
                         </div>
-                        <a href="/" class="detail_fond hover_tin">
-                            Детальніше
+                        <a href="{{route('news')}}" class="detail_fond hover_tin">
+                            @lang('main.more')
                         </a>
                     </div>
 
@@ -42,8 +42,8 @@
                 <img class="img_fond" src="img/Fond.png" alt="" style="margin: 30px 0;">
 
 
-                <a href="/" class="detail_fond hover_tin">
-                    Детальніше
+                <a href="{{route('fond')}}" class="detail_fond hover_tin">
+                    @lang('main.more')
                 </a>
             </div>
 
@@ -120,8 +120,8 @@
 {{--                        </div>--}}
                         @endforeach
                     </div>
-                    <a href="./" class="detail_news hover_tin">
-                        Детальніше
+                    <a href="{{route('news')}}" class="detail_news hover_tin">
+                        @lang('main.more')
                     </a>
 
                 </div>

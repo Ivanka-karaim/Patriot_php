@@ -12,11 +12,14 @@ use App\Http\Controllers\MainController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::middleware(['set_locale'])->group(function (){
+    Route::get('/',[MainController::class,'general'])->name('general');
+    Route::get('/news', [MainController::class, 'news'])->name('news');
+    Route::get('/news/{id}', [MainController::class, 'new_id'])->name('new');
+    Route::get('/fond', [MainController::class, 'info_fond'])->name('fond');
+});
 
-Route::get('/',[MainController::class,'general'])->name('general');
-Route::get('/news', [MainController::class, 'news'])->name('news');
-Route::get('/news/{id}', [MainController::class, 'new_id'])->name('new');
-Route::get('/fond', [MainController::class, 'info_fond'])->name('fond');
+Route::get('locale/{locale}', [MainController::class, 'changeLocale'])->name('locale');
 //Route::get('/catalog/{id}', [MainController::class, 'products'])->name('products');
 //Route::get('/products/{id_product}', [MainController::class, 'product'])->name('product');
 //Route::get('/our_works/{count}', [MainController::class, 'our_works_add'])->name('our_works_add');

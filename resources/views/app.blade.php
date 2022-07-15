@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,10 +21,10 @@
             <nav>
                 <ul  class="header__menu">
                     <li>
-                        <a href="{{route('fond')}}">ПРО ФОНД</a>
+                        <a href="{{route('fond')}}">@lang('main.fond')</a>
                     </li>
                     <li>
-                        <a href="{{route('news')}}">НОВИНИ</a>
+                        <a href="{{route('news')}}">@lang('main.news')</a>
                     </li>
                 </ul>
             </nav>
@@ -44,8 +44,10 @@
             </div>
         </div>
         <div class="flex align-items-center">
+
+            <a class="lang" href="{{ route('locale',strtolower( __('main.set_lang'))) }}">@lang('main.set_lang')</a>
             <button  class="box_support hover_tin open_pop_up">
-                Підтримати
+                @lang('main.support')
             </button>
             <div class="contacts">
                 <a class="number hover_blue_yellow">
@@ -76,6 +78,7 @@
             <div class="pop_up_body" id="pop_up_body">
                 <div style="display:flex; flex-direction: column; align-items:center;">
                     <h3>Відскануйте Q-r код та зробіть добро</h3>
+                    <img class="qr_pid" src="/img/Qr.jpg" alt="">
                     <button id="pop_up_ok" onclick="closePop('pop_up')">Ок</button>
                     <div class="pop_up_close" id="pop_up_close" onclick="closePop('pop_up')">&#10006
                     </div>
@@ -92,10 +95,10 @@
                 <div class="col-md-4">
                     <img class="emblem" src="/img/emblem.png" alt="">
                     <div class="general_text_mobile">
-                        Патріот.ua
+                        @lang('main.name_foot')
                     </div>
                     <div class="text_mobile">
-                        Благодійна організація
+                        @lang('main.surname_foot')
                     </div>
 
                         <div class="foot_icon icons">
@@ -111,10 +114,10 @@
 
                     <div class="flex align-items-center justify-content-between">
                         <div class="text_support">
-                            Будемо дуже раді Вашій підтримці
+                           @lang('main.support_happy')
                         </div>
                         <button  class="box_support hover_tin open_pop_up">
-                            Підтримати
+                            @lang('main.support')
                         </button>
                     </div>
                     <hr class ="hr">
@@ -125,13 +128,13 @@
                             <nav class="footer_menu">
                                 <ul>
                                     <li>
-                                        <a class="text_footer hover_line" href="{{route('general')}}">Головна</a>
+                                        <a class="text_footer hover_line" href="{{route('general')}}">@lang('main.general')</a>
                                     </li>
                                     <li>
-                                        <a class="text_footer hover_line" href="{{route('news')}}">Новини</a>
+                                        <a class="text_footer hover_line" href="{{route('news')}}">@lang('main.news_foot')</a>
                                     </li>
                                     <li>
-                                        <a class="text_footer hover_line" href="{{route('fond')}}">Про нас</a>
+                                        <a class="text_footer hover_line" href="{{route('fond')}}">@lang('main.about_us')</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -168,10 +171,10 @@
     <div class="footer_mobile">
         <div class="container">
             <div class="general_text_mobile">
-                Патріот.ua
+                @lang('main.name_foot')
             </div>
             <div class="text_mobile">
-                Благодійна організація
+                @lang('main.surname_foot')
             </div>
             <div class=" flex flex-column">
                 <div class="graph">
@@ -196,7 +199,7 @@
     </div>
     <div class="footer_two">
         <div class="container">
-            © 2022, Патріот.ua | Благодійна організація
+            @lang('main.foot_text')
         </div>
     </div>
 </footer>

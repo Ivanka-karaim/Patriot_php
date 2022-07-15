@@ -57,7 +57,7 @@ header {
   justify-content: right;
 }
 .menu ul li a {
-  margin-left: 50px;
+  margin-left: 30px;
   text-decoration-line: none;
   font-family: 'Oswald', sans-serif;
   font-weight: 400;
@@ -277,6 +277,12 @@ footer {
   font-size: 24px;
   line-height: 77px;
   color: #FFFFFF;
+}
+@media (max-width: 768px) {
+  .footer_two {
+    font-size: 18px;
+    line-height: 50px;
+  }
 }
 main {
   margin-top: 150px;
@@ -912,6 +918,12 @@ main {
     margin-top: 70px !important;
   }
 }
+@media (max-width: 768px) {
+  .hr_news {
+    margin-bottom: 30px;
+    margin-top: 30px !important;
+  }
+}
 .hr_news:last-child {
   display: none;
 }
@@ -1101,7 +1113,6 @@ main {
 }
 .change_photo_1:hover {
   background: url("https://savelife.in.ua/wp-content/uploads/2022/04/widget-1.jpg");
-  width: 50%;
 }
 .change_photo_4:hover {
   background: url("https://savelife.in.ua/wp-content/uploads/2022/04/widget-4.jpg");
@@ -1111,7 +1122,6 @@ main {
 }
 .change_photo_3:hover {
   background: url("https://savelife.in.ua/wp-content/uploads/2022/04/widget-3.jpg");
-  width: 50%;
 }
 .change_photo:hover .general_progress {
   color: #ffffff !important;
@@ -1411,5 +1421,46 @@ h3 {
 }
 .pop_up.active {
   display: block;
+}
+.save_fond_text {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 35px;
+  line-height: 45px;
+  text-align: center;
+  color: #0557A8;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.save_fond {
+  background: rgba(254, 212, 3, 0.73);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 50px 0;
+  width: 100%;
+  margin: 50px 0;
+}
+.qr_fond {
+  width: 70%;
+}
+@media (max-width: 768px) {
+  .qr_fond {
+    width: 90%;
+  }
+}
+.qr_pid {
+  width: 90%;
+}
+.lang {
+  margin-left: 30px;
+  text-decoration-line: none;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 30px;
+  color: #095AAB;
+  margin-right: 20px;
 }
 /*# sourceMappingURL=index.css.map */
