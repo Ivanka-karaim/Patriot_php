@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html >
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,14 +29,14 @@
                 </ul>
             </nav>
             <div class="contacts_min">
-                <a class="number hover_blue_yellow">
-                    +38 (068) 505 96 50
+                <a href="{{'tel:'.str_replace([' ','(',')'], '',$info_fond->phone_1)}}" class="number hover_blue_yellow">{{$info_fond->phone_1}}
+
                 </a>
                 <div class="icons">
-                    <a class="icon hover_blue_yellow" href="https://www.facebook.com/profile.php?id=100040310163390" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                    <a class="icon hover_blue_yellow" href="https://instagram.com/arkonsklo?igshid=YmMyMTA2M2Y=" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                    <a class="icon hover_blue_yellow" href="https://t.me/+380685059650" target="_blank"><i class="fa-brands fa-telegram"></i></a>
-                    <a class="icon hover_blue_yellow" href="https://wa.me/380685059650" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a class="icon hover_blue_yellow" href="{{$info_fond->facebook}}" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                    <a class="icon hover_blue_yellow" href="{{$info_fond->instagram}}" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a class="icon hover_blue_yellow" href="{{'https://t.me/'.str_replace([' ','(',')'], '',$info_fond->phone_1)}}" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+                    <a class="icon hover_blue_yellow" href="{{'https://wa.me/'.str_replace([' ','(',')'], '',$info_fond->phone_1)}}" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
 
                 </div>
 
@@ -50,14 +50,14 @@
                 @lang('main.support')
             </button>
             <div class="contacts">
-                <a class="number hover_blue_yellow">
-                    +38 (068) 505 96 50
+                <a href="{{'tel:'.str_replace([' ','(',')'], '',$info_fond->phone_1)}}" class="number hover_blue_yellow">
+                    {{$info_fond->phone_1}}
                 </a>
                 <div class="icons">
-                    <a class="icon hover_blue_yellow" href="https://www.facebook.com/profile.php?id=100040310163390" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                    <a class="icon hover_blue_yellow" href="https://instagram.com/arkonsklo?igshid=YmMyMTA2M2Y=" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                    <a class="icon hover_blue_yellow" href="https://t.me/+380685059650" target="_blank"><i class="fa-brands fa-telegram"></i></a>
-                    <a class="icon hover_blue_yellow" href="https://wa.me/380685059650" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a class="icon hover_blue_yellow" href="{{$info_fond->facebook}}" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                    <a class="icon hover_blue_yellow" href="{{$info_fond->instagram}}" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a class="icon hover_blue_yellow" href="{{'https://t.me/'.str_replace([' ','(',')'], '',$info_fond->phone_1)}}" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+                    <a class="icon hover_blue_yellow" href="{{'https://wa.me/'.str_replace([' ','(',')'], '',$info_fond->phone_1)}}" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
 
                 </div>
             </div>
@@ -77,9 +77,9 @@
         <div class="pop_up_container">
             <div class="pop_up_body" id="pop_up_body">
                 <div style="display:flex; flex-direction: column; align-items:center;">
-                    <h3>Відскануйте Q-r код та зробіть добро</h3>
-                    <img class="qr_pid" src="/img/Qr.jpg" alt="">
-                    <button id="pop_up_ok" onclick="closePop('pop_up')">Ок</button>
+                    <h3>@lang('main.qr_text')</h3>
+                    <img class="qr_pid" src="{{$info_fond->qr_photo}}" alt="">
+                    <button id="pop_up_ok" onclick="closePop('pop_up')">@lang('main.ok')</button>
                     <div class="pop_up_close" id="pop_up_close" onclick="closePop('pop_up')">&#10006
                     </div>
                 </div>
@@ -102,10 +102,10 @@
                     </div>
 
                         <div class="foot_icon icons">
-                            <a class="icon hover_blue_yellow big_icon" href="https://www.facebook.com/profile.php?id=100040310163390" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                            <a class="icon hover_blue_yellow big_icon" href="https://instagram.com/arkonsklo?igshid=YmMyMTA2M2Y=" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                            <a class="icon hover_blue_yellow big_icon" href="https://t.me/+380685059650" target="_blank"><i class="fa-brands fa-telegram"></i></a>
-                            <a class="icon hover_blue_yellow big_icon" href="https://wa.me/380685059650" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                            <a class="icon hover_blue_yellow big_icon" href="{{$info_fond->facebook}}" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                            <a class="icon hover_blue_yellow big_icon" href="{{$info_fond->instagram}}" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                            <a class="icon hover_blue_yellow big_icon" href="{{'https://t.me/'.str_replace([' ','(',')'], '',$info_fond->phone_1)}}" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+                            <a class="icon hover_blue_yellow big_icon" href="{{'https://wa.me/'.str_replace([' ','(',')'], '',$info_fond->phone_1)}}" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
 
                         </div>
 
@@ -142,19 +142,19 @@
                         <div class="col-md-9">
                             <div class=" flex flex-column">
                                 <div class="graph">
-                                    пн-пт 10:00-19:00
+                                    @lang('main.schedule')
                                 </div>
-                                <a href="/" class="text_contacts hover_line">
-                                    +38 (068) 505 96 50
+                                <a href="{{'tel:'.str_replace([' ','(',')'], '',$info_fond->phone_1)}}" class="text_contacts hover_line">
+                                    {{$info_fond->phone_1}}
+                                </a>
+                                <a href="{{'tel:'.str_replace([' ','(',')'], '',$info_fond->phone_2)}}" class="text_contacts hover_line">
+                                    {{$info_fond->phone_2}}
+                                </a>
+                                <a href="{{'mailto:'.$info_fond->email}}" class="text_contacts hover_line">
+                                    {{$info_fond->email}}
                                 </a>
                                 <a href="/" class="text_contacts hover_line">
-                                    +38 (066) 723 64 85
-                                </a>
-                                <a href="/" class="text_contacts hover_line">
-                                    karaimivanna@gmail.com
-                                </a>
-                                <a href="/" class="text_contacts hover_line">
-                                    Львівська обл. м. Броди вул. Руська, 25
+                                    {{$info_fond->__('address')}}
                                 </a>
 
                             </div>
@@ -178,19 +178,19 @@
             </div>
             <div class=" flex flex-column">
                 <div class="graph">
-                    пн-пт 10:00-19:00
+                    @lang('main.schedule')
                 </div>
-                <a href="/" class="text_contacts hover_line">
-                    +38 (068) 505 96 50
+                <a href="{{'tel:'.str_replace([' ','(',')'], '',$info_fond->phone_1)}}" class="text_contacts hover_line">
+                    {{$info_fond->phone_1}}
+                </a>
+                <a href="{{'tel:'.str_replace([' ','(',')'], '',$info_fond->phone_2)}}" class="text_contacts hover_line">
+                    {{$info_fond->phone_2}}
+                </a>
+                <a href="{{'mailto:'.$info_fond->email}}" class="text_contacts hover_line">
+                    {{$info_fond->email}}
                 </a>
                 <a href="/" class="text_contacts hover_line">
-                    +38 (066) 723 64 85
-                </a>
-                <a href="/" class="text_contacts hover_line">
-                    karaimivanna@gmail.com
-                </a>
-                <a href="/" class="text_contacts hover_line">
-                    Львівська обл. м. Броди вул. Руська, 25
+                    {{$info_fond->__('address')}}
                 </a>
 
             </div>

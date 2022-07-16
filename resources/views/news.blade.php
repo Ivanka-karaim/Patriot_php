@@ -5,11 +5,11 @@
         <div class="container">
             <div class="flex">
                 <a href="{{route('general')}}" class="text_way hover_line">
-                    Головна
+                    {{__('main.general')}}
                 </a>
                 <i class="fa-solid fa-arrow-right-long icon_way"></i>
                 <a href="{{route('news')}}" class="text_way hover_line">
-                    Новини
+                    {{__('main.news_foot')}}
 
                 </a>
             </div>
@@ -19,7 +19,7 @@
         <div class="container">
             <div class="flex flex-column align-items-center">
                 <div class="name">
-                    НОВИНИ
+                    @lang('main.news')
                 </div>
                 <hr class="hr_name">
             </div>
@@ -37,13 +37,18 @@
                         <img src="{{$new->photos[0]->photo}}" alt="" style="width:100%">
                     </div>
                     <div class="col-md-6 col-lg-7 flex flex-column justify-content-between" style="margin-bottom: 70px">
-                        <a href="{{route('new', $new->id)}}" class="general_text_news text_align_left">{{$new->name}}
+                        <a href="{{route('new', $new->id)}}" class="general_text_news text_align_left">{{$new->__('name')}}
 
                         </a>
-                        <div class="text_news text_align_left">{{$new->description}}
+                        <div class="text_news text_align_left">{{$new->__('description')}}
 
                         </div>
-                        <div class="date_news text_align_left">{{str_replace($month_en, $month_ukr,DateTime::createFromFormat('Y-m-d H:i:s', $new->date)->format('d F Y, H:i '))}}
+                        <div class="date_news text_align_left">@if(App::getLocale()==='uk')
+                                {{str_replace($month_en, $month_ukr,DateTime::createFromFormat('Y-m-d H:i:s', $new->date)->format('d F Y, H:i '))}}
+                            @else
+                                {{DateTime::createFromFormat('Y-m-d H:i:s', $new->date)->format('d F Y, H:i ')}}
+
+                            @endif
 
 
                         </div>
@@ -51,13 +56,18 @@
                     <hr class="hr_news">
                         @else
                     <div class="col-md-6 col-lg-7 flex flex-column justify-content-between" style="margin-bottom: 70px">
-                        <a href="{{route('new', $new->id)}}" class="general_text_news text_align_right">{{$new->name}}
+                        <a href="{{route('new', $new->id)}}" class="general_text_news text_align_right">{{$new->__('name')}}
 
                         </a>
-                        <div class="text_news text_align_right">{{$new->description}}
+                        <div class="text_news text_align_right">{{$new->__('description')}}
 
                         </div>
-                        <div class="date_news text_align_right">{{str_replace($month_en, $month_ukr,DateTime::createFromFormat('Y-m-d H:i:s', $new->date)->format('d F Y, H:i '))}}
+                        <div class="date_news text_align_right">@if(App::getLocale()==='uk')
+                                {{str_replace($month_en, $month_ukr,DateTime::createFromFormat('Y-m-d H:i:s', $new->date)->format('d F Y, H:i '))}}
+                            @else
+                                {{DateTime::createFromFormat('Y-m-d H:i:s', $new->date)->format('d F Y, H:i ')}}
+
+                            @endif
 
 
                         </div>
@@ -81,15 +91,20 @@
                     </div>
                     <div class="col-md-7">
                         <a href="{{route('new', $new->id)}}" class="general_text_news text_align_left">
-                            {{$new->name}}
+                            {{$new->__('name')}}
                         </a>
                     </div>
                     <div class="col-md-12">
                         <div class="text_news ">
-                            {{$new->description}}
+                            {{$new->__('description')}}
                         </div>
                         <div class="date_news ">
-                            {{str_replace($month_en, $month_ukr,DateTime::createFromFormat('Y-m-d H:i:s', $new->date)->format('d F Y, H:i '))}}
+                            @if(App::getLocale()==='uk')
+                                {{str_replace($month_en, $month_ukr,DateTime::createFromFormat('Y-m-d H:i:s', $new->date)->format('d F Y, H:i '))}}
+                            @else
+                                {{DateTime::createFromFormat('Y-m-d H:i:s', $new->date)->format('d F Y, H:i ')}}
+
+                            @endif
 
                         </div>
 
@@ -99,7 +114,7 @@
 
                     <div class="col-md-7 text_align_right">
                         <a href="{{route('new', $new->id)}}" class="general_text_news text_align_right">
-                            {{$new->name}}
+                            {{$new->__('name')}}
                         </a>
                     </div>
                     <div class="col-md-5">
@@ -108,11 +123,16 @@
                     </div>
                     <div class="col-md-12">
                         <div class="text_news text_align_right">
-                            {{$new->description}}
+                            {{$new->__('description')}}
 
                         </div>
                         <div class="date_news text_align_right">
-                            {{str_replace($month_en, $month_ukr,DateTime::createFromFormat('Y-m-d H:i:s', $new->date)->format('d F Y, H:i '))}}
+                            @if(App::getLocale()==='uk')
+                                {{str_replace($month_en, $month_ukr,DateTime::createFromFormat('Y-m-d H:i:s', $new->date)->format('d F Y, H:i '))}}
+                            @else
+                                {{DateTime::createFromFormat('Y-m-d H:i:s', $new->date)->format('d F Y, H:i ')}}
+
+                            @endif
                         </div>
 
                     </div>
@@ -131,13 +151,18 @@
 
                 <div class="col-12 flex flex-column justify-content-between">
                     <a href="{{route('new', $new->id)}}" class="general_text_news text_align_left_new">
-                        {{$new->name}}
+                        {{$new->__('name')}}
                     </a>
                     <div class="text_news text_align_left_new">
-                       {{$new->description}}
+                       {{$new->__('description')}}
                     </div>
                     <div class="date_news text_align_left_new">
-                        {{str_replace($month_en, $month_ukr,DateTime::createFromFormat('Y-m-d H:i:s', $new->date)->format('d F Y, H:i '))}}
+                        @if(App::getLocale()==='uk')
+                            {{str_replace($month_en, $month_ukr,DateTime::createFromFormat('Y-m-d H:i:s', $new->date)->format('d F Y, H:i '))}}
+                        @else
+                            {{DateTime::createFromFormat('Y-m-d H:i:s', $new->date)->format('d F Y, H:i ')}}
+
+                        @endif
                     </div>
                 </div>
                     <hr class="hr_news"/>

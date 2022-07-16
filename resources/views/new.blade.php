@@ -5,11 +5,11 @@
         <div class="container">
             <div class="flex">
                 <a href="{{route('general')}}" class="text_way hover_line">
-                    Головна
+                    {{__('main.general')}}
                 </a>
                 <i class="fa-solid fa-arrow-right-long icon_way"></i>
                 <a href="{{route('news')}}" class="text_way hover_line">
-                    Новини
+                    {{__('main.news_foot')}}
 
                 </a>
             </div>
@@ -18,15 +18,20 @@
     <section>
         <div class="container">
             <div class="flex flex-column align-items-center">
-                <div class="name_new">{{$new->name}}
+                <div class="name_new">{{$new->__('name')}}
 
                 </div>
                 <hr class="hr_name_new">
                 <div class="flex justify-content-between" style="width:90%">
-                    <div class="date_and_author">{{str_replace($month_en, $month_ukr,DateTime::createFromFormat('Y-m-d H:i:s', $new->date)->format('d F Y, H:i '))}}
+                    <div class="date_and_author">@if(App::getLocale()==='uk')
+                            {{str_replace($month_en, $month_ukr,DateTime::createFromFormat('Y-m-d H:i:s', $new->date)->format('d F Y, H:i '))}}
+                        @else
+                                                     {{DateTime::createFromFormat('Y-m-d H:i:s', $new->date)->format('d F Y, H:i ')}}
+
+                        @endif
 
                     </div>
-                    <div class="date_and_author text_align_right_new">{{$new->author}}
+                    <div class="date_and_author text_align_right_new">{{$new->__('author')}}
 
                     </div>
                 </div>
@@ -37,7 +42,7 @@
     <section>
         <div class="container">
             <img class="img_new_width" src="{{$new->photos[0]->photo}}" alt="">
-            <div class="text_new text_new_bord">{{$new->description}}
+            <div class="text_new text_new_bord">{{$new->__('description')}}
 
 
             </div>

@@ -5,11 +5,11 @@
         <div class="container">
             <div class="flex">
                 <a href="{{route('general')}}" class="text_way hover_line">
-                    Головна
+                    {{__('main.general')}}
                 </a>
                 <i class="fa-solid fa-arrow-right-long icon_way"></i>
                 <a href="{{route('fond')}}" class="text_way hover_line">
-                    Про фонд
+                    {{ucfirst(strtolower(__('main.fond')))}}
 
                 </a>
             </div>
@@ -19,7 +19,7 @@
         <div class="container">
             <div class="flex flex-column align-items-center">
                 <div class="name">
-                    ПРО ФОНД
+                    @lang('main.fond')
                 </div>
                 <hr class="hr_name">
             </div>
@@ -28,35 +28,25 @@
     </section>
     <section>
         <div class="container">
-            <img class="general_photo" src="img/GENERAL.png" alt="" style="width:100%; margin-top: 50px;">
+            <img class="general_photo" src="{{$info_fond->photo_1}}" alt="" style="width:100%; margin-top: 50px;">
             <div class="save_fond">
             <div class="row">
                 <div class="col-md-5" >
                     <div class="flex justify-content-center" style="width:100%">
-                    <img src="/img/Qr.jpg" alt="" class="qr_fond">
+                    <img src="{{$info_fond->photo_2}}" alt="" class="qr_fond">
                     </div>
 
                 </div>
                 <div class="col-md-7">
                     <div class="save_fond_text">
-                    Підтримайте нашу благодійну організацію
+                    @lang('main.support_fond')
                     </div>
                 </div>
 
             </div>
             </div>
-            <div class="text_new">
-                «Повернись живим» — фонд компетентної допомоги армії. З 2014 року наша ключова мета — зробити Збройні Сили ефективнішими, зберегти життя військових та системно протидіяти ворогові. Від початку повномасштабного вторгнення у лютому 2022 року ми збільшили допомогу армії в рази і підтримуємо захисників України, які змінили своє звичне життя та вийшли на лінію оборони.
-
-                Фонд закуповує обладнання, яке допомагає рятувати життя військових, зокрема, тепловізійну оптику, квадрокоптери, автомобілі, системи захисту та розвідки.
-
-                Наші інструктори займаються підготовкою саперів, операторів безпілотних літальних апаратів (БПЛА), артилеристів і снайперів, а ще навчають домедичній допомозі й сприяють проведенню секретних місій, про які ми обов’язково розповімо після перемоги.
-
-                З 2014 року Фонд зібрав на потреби ЗСУ понад 3 мільярди гривень, або понад 110 мільйонів доларів, та підготував більше 10 тисяч висококваліфікованих військових фахівців.
-
-                Ми розробляємо аналітику, яка стає основою майбутніх рішень держави в оборонній сфері, реалізуємо проєкти підтримки ветеранського підприємництва та спортивної реабілітації.
-
-                Фонд має прозору фінансову звітність. Кожну пожертву та закупівлю можна відстежувати у режимі реального часу.
+            <div class="text_new text_new_bord">{{$info_fond->__('text_general')}}</div>
+            <div class="text_new">{{$info_fond->__('text_all')}}
 
             </div>
         </div>

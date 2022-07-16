@@ -12,10 +12,10 @@
                 <div class="col-lg-6 col-xl-7">
                     <div class="flex flex-column justify-content-between">
                         <div class="general_text_fond">
-                            ПРО ОРГАНІЗАЦІЮ
+                            @lang('main.for_fond')
                         </div>
                         <div class="text_fond">
-                            Наша Фундація підтримує Збройні Сили України, інші складові сектору безпеки та оборони держави, забезпечуючи їх технологічну перевагу над ворогом. Із 2014 року ми передали у військо близько 3,439 одиниць тепловізійної оптики та понад 2869 дронів. Окрім матеріальної допомоги, ми підвищили рівень технологічності армії з допомогою більш ніж 2,800 планшетів із програмним забезпеченням “Армор” для стрільби з закритих позицій з танків.
+                            {{$info_fond->__('text_general')}}
                         </div>
                         <a href="{{route('news')}}" class="detail_fond hover_tin">
                             @lang('main.more')
@@ -33,13 +33,13 @@
         <div class="container">
             <div class="flex flex-column justify-content-between align-items-center">
                 <div class="general_text_fond">
-                    ПРО ОРГАНІЗАЦІЮ
+                    @lang('main.for_fond')
                 </div>
                 <div class="text_fond">
-                    Наша Фундація підтримує Збройні Сили України, інші складові сектору безпеки та оборони держави, забезпечуючи їх технологічну перевагу над ворогом. Із 2014 року ми передали у військо близько 3,439 одиниць тепловізійної оптики та понад 2869 дронів. Окрім матеріальної допомоги, ми підвищили рівень технологічності армії з допомогою більш ніж 2,800 планшетів із програмним забезпеченням “Армор” для стрільби з закритих позицій з танків.
+                    {{$info_fond->__('text_general')}}
                 </div>
 
-                <img class="img_fond" src="img/Fond.png" alt="" style="margin: 30px 0;">
+                <img class="img_fond" src="{{$info_fond->photo_2}}" alt="" style="margin: 30px 0;">
 
 
                 <a href="{{route('fond')}}" class="detail_fond hover_tin">
@@ -54,14 +54,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-lg-8 flex flex-column justify-content-between">
-                    <img style="width:100%" src="img/New1.png" alt="">
-                    <a href="{{route('new', $news[0]->id)}}" class="general_text_new1 hover_blue_yellow">{{$news[0]->name}}
+                    <img style="width:100%" src="{{$news[0]->photos[0]->photo}}" alt="">
+                    <a href="{{route('new', $news[0]->id)}}" class="general_text_new1 hover_blue_yellow">{{$news[0]->__('name')}}
 
                     </a>
-                    <div class="text_new1">{{$news[0]->description}}
+                    <div class="text_new1">{{$news[0]->__('description')}}
 
                     </div>
-                    <div class="date_new">{{$news[0]->date}}
+                    <div class="date_new">@if(App::getLocale()==='uk')
+                            {{str_replace($month_en, $month_ukr,DateTime::createFromFormat('Y-m-d H:i:s', $news[0]->date)->format('d F Y, H:i '))}}
+                        @else
+                            {{DateTime::createFromFormat('Y-m-d H:i:s', $news[0]->date)->format('d F Y, H:i ')}}
+
+                        @endif
 
                     </div>
 
@@ -73,10 +78,15 @@
                     <div>
                         @foreach($news->skip(1) as $new)
                         <div class="new2">
-                            <a href="{{route('new', $new->id)}}" class="text_new2 hover_blue_yellow">{{$new->name}}
+                            <a href="{{route('new', $new->id)}}" class="text_new2 hover_blue_yellow">{{$new->__('name')}}
 
                             </a>
-                            <div class="date_new">{{$new->date}}
+                            <div class="date_new">@if(App::getLocale()==='uk')
+                                    {{str_replace($month_en, $month_ukr,DateTime::createFromFormat('Y-m-d H:i:s', $new->date)->format('d F Y, H:i '))}}
+                                @else
+                                    {{DateTime::createFromFormat('Y-m-d H:i:s', $new->date)->format('d F Y, H:i ')}}
+
+                                @endif
                             </div>
                         </div>
                         <div class="hr_new2">
